@@ -42,8 +42,13 @@ Specifications:
 -   We don’t want customer without order
 -   We don’t want any order without customer
 -   We prefer you use React, but feel free to use Vue
+-   We prefer you use SCSS instead of CSS
 
 
 * If you think this design needs more table or additional flow, feel free to add those.
 * feel free to use your preferred architecture 
+* fork this repo
+* 3 type of branch need for git flow master/main,development, and feature
+* after developing a feature commit and push to development and development to master
+* make sure there are no bugs when commiting into master
 * documentation for backend needed
