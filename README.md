@@ -1,5 +1,5 @@
 
-**Create product management server using nodejs (nestjs, expressjs, or other framework) with this criteria:**
+**Create product management server using nodejs ( expressjs, or other framework) with this criteria:**
 **Database (Provide ERD)**
 
 -   Table products
