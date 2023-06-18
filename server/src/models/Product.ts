@@ -1,6 +1,5 @@
 import { Model, DataTypes } from "sequelize";
 import sequelize from "./index";
-import { Cart } from "./Cart";
 
 export class Product extends Model {
   declare name: number;
@@ -21,5 +20,3 @@ Product.init(
     modelName: "Product",
   }
 );
-
-Product.hasMany(Cart);

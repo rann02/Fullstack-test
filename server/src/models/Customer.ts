@@ -1,10 +1,10 @@
 import { Model, DataTypes } from "sequelize";
 import sequelize from "./index";
-import { Cart } from "./Cart";
 import { Order } from "./Order";
 
 export class Customer extends Model {
-  public name!: string;
+  declare id: number;
+  declare name: string;
 }
 
 Customer.init(
@@ -17,5 +17,5 @@ Customer.init(
   }
 );
 
-Customer.hasMany(Order);
-Customer.hasOne(Cart);
+Customer.hasOne(Order);
+Order.belongsTo(Customer);

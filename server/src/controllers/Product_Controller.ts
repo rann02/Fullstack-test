@@ -1,8 +1,8 @@
 import { Product } from "../models/Product";
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 
 export class Controller {
-  static async postProduct(req: Request, res: Response) {
+  static async postProduct(req: Request, res: Response, next: NextFunction) {
     try {
       const { name, description, price, imageUrl } = req.body;
       const product: Product = await Product.create({
@@ -13,40 +13,39 @@ export class Controller {
       });
       res.status(201).json(product);
     } catch (error) {
-      console.log(error);
+      next(error);
     }
   }
 
-  static async getAllProduct(req: Request, res: Response) {
+  static async getAllProduct(req: Request, res: Response, next: NextFunction) {
     try {
       const products = await Product.findAll();
       res.status(200).json(products);
     } catch (error) {
-      console.log(error);
+      next(error);
     }
   }
 
-  static async getOneProduct(req: Request, res: Response) {
+  static async getOneProduct(req: Request, res: Response, next: NextFunction) {
     try {
       const { id } = req.params;
       const product = await Product.findByPk(id);
       if (!product) {
-        res.status(404).json({ message: "Product not found" });
-        return;
+        throw { name: "NotFound" };
       }
       res.status(200).json(product);
     } catch (error) {
-      console.log(error);
+      next(error);
     }
   }
 
-  static async updateProduct(req: Request, res: Response) {
+  static async updateProduct(req: Request, res: Response, next: NextFunction) {
     try {
       const { id } = req.params;
       const { name, description, price, imageUrl } = req.body;
       const findProduct = await Product.findByPk(id);
       if (!findProduct) {
-        return res.status(404).json({ message: "Product not found" });
+        throw { name: "NotFound" };
       }
       await Product.update(
         { name, description, price, imageUrl },
@@ -58,16 +57,16 @@ export class Controller {
       );
       res.status(200).json({ message: "Product updated" });
     } catch (error) {
-      console.log(error);
+      next(error);
     }
   }
 
-  static async deletProduct(req: Request, res: Response) {
+  static async deletProduct(req: Request, res: Response, next: NextFunction) {
     try {
       const { id } = req.params;
       const findProduct = await Product.findByPk(id);
       if (!findProduct) {
-        return res.status(404).json({ message: "Product not found" });
+        throw { name: "NotFound" };
       }
       await Product.destroy({
         where: {
@@ -76,7 +75,7 @@ export class Controller {
       });
       res.status(200).json({ message: "Product deleted" });
     } catch (error) {
-      console.log(error);
+      next(error);
     }
   }
 }
