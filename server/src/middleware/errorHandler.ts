@@ -10,7 +10,7 @@ export function errorHandler(
     res.status(404).json({
       messsage: "Product not found",
     });
-  } else if (err.name === "failed") {
+  } else if (err.name === "Failed") {
     res.status(400).json({
       messsage: "failed to create customer",
     });

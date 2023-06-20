@@ -15,8 +15,7 @@ export class Controller {
         { transaction: t }
       );
       if (orders.length === 0) {
-        throw { name: "failed" };
-        return res.status(400).json({ message: "failed to create customer" });
+        throw { name: "Failed" };
       }
       interface orderType {
         name: string;

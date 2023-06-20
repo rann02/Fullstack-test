@@ -1,0 +1,228 @@
+.container-product {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    font-size: 3.5rem;
+    color: #444;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2rem;
+
+    .product {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: #fff;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      outline: 0.1rem solid #ccc;
+      outline-offset: -1.5rem;
+      cursor: pointer;
+
+      .cover-image {
+        height: 25rem;
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+      }
+
+      h3 {
+        padding: 0.5rem 0;
+        font-size: 2rem;
+        color: #444;
+      }
+
+      .price {
+        font-size: 2rem;
+        color: #444;
+      }
+    }
+
+    .product:hover {
+      outline: 0.2rem solid #222;
+      outline-offset: 0;
+
+      img {
+        transform: scale(0.9);
+      }
+
+      h3 {
+        color: #27ae60;
+      }
+    }
+  }
+}
+
+.products-preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  .preview {
+    display: block;
+    padding: 2rem;
+    text-align: center;
+    background: #fff;
+    position: relative;
+    margin: 2rem;
+    width: 30rem;
+
+    .active {
+      display: flex;
+    }
+
+    .image-preview {
+      height: 20rem;
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      .delete-update {
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 10px;
+        color: green;
+        font-weight: 700;
+
+        span:hover {
+          scale: 1.1;
+          color: #27ae60;
+          text-decoration: none;
+        }
+      }
+    }
+
+    .fa-times {
+      position: absolute;
+      top: 0.25rem;
+      right: 0.5rem;
+      cursor: pointer;
+      color: #444;
+      font-size: 2rem;
+    }
+
+    .fa-times:hover {
+      transform: rotate(90deg);
+    }
+
+    h3 {
+      color: #444;
+      padding: 0.5rem 0;
+      font-size: 2rem;
+    }
+
+    p {
+      line-height: 1.25;
+      padding: 1rem 0;
+      font-size: 1rem;
+      color: #777;
+    }
+
+    .price {
+      padding: 0.5rem 0;
+      font-size: 1.5rem;
+      color: #27ae60;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+
+      a {
+        flex: 1 1;
+        padding: 0.5rem;
+        font-size: 1.8rem;
+        color: #444;
+        border: 0.1rem solid #444;
+      }
+
+      .cart {
+        background: #444;
+        color: #fff;
+      }
+
+      .cart:hover {
+        background: #111;
+      }
+
+      .buy:hover {
+        background: #444;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.container-account {
+  display: none;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+
+  .new-account {
+    width: 30vw;
+    background: #fff;
+    padding-bottom: 20px;
+    .title-new {
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+
+      .field-account {
+        height: 46px;
+        padding: 0 16px;
+        border: 2px solid #ddd;
+        border-radius: 4px;
+        font-family: "Rubik", sans-serif;
+        outline: 0;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      .field-account:focus {
+        border-color: #0f7ef1;
+      }
+
+      .newaccount {
+        padding: 0.25rem;
+        font-size: 1rem;
+        color: #fff;
+        background: #444;
+        border: none;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      }
+      .newaccount:hover {
+        background: #111;
+      }
+    }
+  }
+}
