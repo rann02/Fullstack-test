@@ -6,16 +6,36 @@ export default function Layout() {
     <div className="container-main">
       <nav className="navbar-cover">
         <div>
-          <NavLink className={"navlink"} to={"/"}>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending ? "navlink" : isActive ? "navlink navactive" : "navlink"
+            }
+            to={"/"}
+          >
             Product
           </NavLink>
-          <NavLink className={"navlink"} to={"/newproduct"}>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending ? "navlink" : isActive ? "navlink navactive" : "navlink"
+            }
+            to={"/newproduct"}
+          >
             Add Product
           </NavLink>
-          <NavLink className={"navlink"} to={"/cart"}>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending ? "navlink" : isActive ? "navlink navactive" : "navlink"
+            }
+            to={"/cart"}
+          >
             Cart
           </NavLink>
-          <NavLink className={"navlink"} to={"/order"}>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending ? "navlink" : isActive ? "navlink navactive" : "navlink"
+            }
+            to={"/order"}
+          >
             Orders
           </NavLink>
         </div>

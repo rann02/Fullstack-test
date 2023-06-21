@@ -1,9 +1,12 @@
+import { log } from "console";
 import { Product } from "../models/Product";
 import { Request, Response, NextFunction } from "express";
 
 export class Controller {
   static async postProduct(req: Request, res: Response, next: NextFunction) {
     try {
+      console.log(req.body);
+
       const { name, description, price, imageUrl } = req.body;
       const product: Product = await Product.create({
         name,
