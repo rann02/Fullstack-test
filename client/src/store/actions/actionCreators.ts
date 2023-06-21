@@ -143,11 +143,36 @@ export function editProduct({
   };
 }
 
-export function setCart(cart: CartType) {
+export function createCart(cart: CartType) {
+  // console.log(cart);
   return (dispatch: AppDispatch) => {
     dispatch({
       type: "SET_ORDERLIS",
       payload: cart,
     });
+  };
+}
+
+interface OrderCartType {
+  name: string;
+  orders: [];
+}
+
+export function createOrder(newOrder: OrderCartType) {
+  // console.log(newOrder);
+  return async () => {
+    try {
+      const res = await fetch(url + "/order", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newOrder),
+      });
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
   };
 }

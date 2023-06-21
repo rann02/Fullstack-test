@@ -10,14 +10,13 @@ export default function Order() {
   const orders = useSelector((state: RootState) => {
     return state.orderReducer.orders;
   });
+
   const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchOrders());
     //eslint-disable-next-line
   }, []);
-
-  console.log(orders);
 
   return (
     <div className="container-order">

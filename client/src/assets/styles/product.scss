@@ -166,6 +166,7 @@
         font-size: 1.8rem;
         color: #444;
         border: 0.1rem solid #444;
+        cursor: pointer;
       }
 
       .cart {
@@ -175,11 +176,6 @@
 
       .cart:hover {
         background: #111;
-      }
-
-      .buy:hover {
-        background: #444;
-        color: #fff;
       }
     }
   }

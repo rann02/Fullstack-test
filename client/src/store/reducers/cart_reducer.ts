@@ -1,15 +1,12 @@
 import { AnyAction } from "redux";
 
-const initialState = {
-  cartList: Array<ListType>,
-};
-
-interface ListType {
-  id: number;
-  name: string;
-  price: number;
-  quantity: number;
+interface Store {
+  cartList: [];
 }
+
+const initialState: Store = {
+  cartList: [],
+};
 
 export type CartType = typeof initialState;
 

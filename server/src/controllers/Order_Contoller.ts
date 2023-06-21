@@ -2,12 +2,15 @@ import { Request, Response, NextFunction } from "express";
 import { Customer } from "../models/Customer";
 import { Order } from "../models/Order";
 import sequelize from "../models";
+import { log } from "console";
 
 export class Controller {
   static async createOrder(req: Request, res: Response, next: NextFunction) {
     const t = await sequelize.transaction();
     try {
       const { name, orders } = req.body;
+      console.log(req.body);
+
       const customerNew: Customer = await Customer.create(
         {
           name,

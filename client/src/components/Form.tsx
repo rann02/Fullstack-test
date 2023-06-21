@@ -73,8 +73,6 @@ export default function Form() {
     // eslint-disable-next-line
   }, [id]);
 
-  console.log(product);
-
   return (
     <div className="left">
       <div className="header">
